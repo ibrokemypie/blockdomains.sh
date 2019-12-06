@@ -11,5 +11,7 @@ for domain in $(echo $domainList | tr -d '"' | tr "," "\n"); do
         iptables -A OUTPUT -s $address -j DROP
     done
 
+    iptables-save >/etc/iptables/iptables.rules
     iptables-save >/etc/iptables/rules.v4
+    iptables-save >/etc/sysconfig/iptables
 done
